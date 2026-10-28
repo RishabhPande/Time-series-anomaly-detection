@@ -89,6 +89,16 @@ reconstruction detector beats the z-score baseline on point-adjusted F1
 and AUC; see `examples/quickstart.py` output for the exact numbers on
 your run.
 
+## Quickstart results
+
+Seeded run of `python examples/quickstart.py` (1500 points, 10 planted
+episodes, threshold at the 99th percentile of clean-train scores):
+
+| Detector | Precision | Recall | F1 | Point-adjusted F1 | AUC |
+|---|---|---|---|---|---|
+| Transformer | 0.841 | 0.414 | 0.555 | 0.947 | 0.821 |
+| Z-score baseline | 0.320 | 0.030 | 0.055 | 0.747 | 0.470 |
+
 ## Roadmap
 
 - [ ] Multivariate series (per-channel encoders with cross-channel attention)
