@@ -1,6 +1,8 @@
 # Time-series-anomaly-detection
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RishabhPande/Time-series-anomaly-detection/blob/main/examples/quickstart.py)
+[![Tests](https://github.com/RishabhPande/Time-series-anomaly-detection/actions/workflows/tests.yml/badge.svg)](https://github.com/RishabhPande/Time-series-anomaly-detection/actions/workflows/tests.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RishabhPande/Time-series-anomaly-detection)
 
 Transformer-based **time-series anomaly detection**, built from scratch in pure Python, zero dependencies.
 
@@ -123,3 +125,11 @@ z-score spike response, and ROC-AUC edge cases.
 > anomalies are planted by the generator itself. Nothing here is real
 > telemetry, and a model trained on synthetic data should not be
 > deployed against production systems without retraining on real data.
+
+## Part of a fraud-ML series
+
+- [GNN Fraud Ring Detection](https://github.com/RishabhPande/GNN-fraud-ring-detection) - GraphSAGE, GAT, GCN, GIN and LSTM from scratch in pure Python (zero dependencies) for fraud ring detection
+- [Agentic Fraud Investigator](https://github.com/RishabhPande/agentic-fraud-investigator) - A multi-agent fraud investigation system in pure Python, zero dependencies.
+- [ID-document-forgery-detection-CV-](https://github.com/RishabhPande/ID-document-forgery-detection-CV-) - Classic image forensics for ID-document forgery detection, written from scratch in pure Python, zero dependencies.
+- [fraud-eval](https://github.com/RishabhPande/fraud-eval) - Open benchmark for evaluating LLM-based fraud and abuse detectors (20-case smoke test, cost-aware metrics, counterfactual evaluation)
+- [fraud-rings](https://github.com/RishabhPande/fraud-rings) - Synthetic identity-fraud ring generator plus graph-based detection, all in pure Python, no dependencies.
