@@ -1,11 +1,18 @@
 [project]
-name = "Time-series-anomaly-detection"
+name = "ts-anomaly"
 version = "0.1.0"
 description = "Transformer-based time-series anomaly detection from scratch in pure Python"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Rishabh Pande"}]
 license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ts_anomaly*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
