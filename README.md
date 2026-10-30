@@ -101,6 +101,10 @@ episodes, threshold at the 99th percentile of clean-train scores):
 | Transformer | 0.841 | 0.414 | 0.555 | 0.947 | 0.821 |
 | Z-score baseline | 0.320 | 0.030 | 0.055 | 0.747 | 0.470 |
 
+![Synthetic series with planted anomaly episodes, Transformer score and z-score baseline](docs/detection.png)
+
+*Same run as the table. Red bands are the planted episodes. The flat stretch near 1080 is a collective anomaly: no single value is extreme, so the z-score baseline never crosses its threshold there, while the reconstruction score rises. Both detectors miss some episodes; the figure shows the run as it is. Regenerate with `python examples/plot_results.py` (needs matplotlib). Data is synthetic.*
+
 ## Roadmap
 
 - [ ] Multivariate series (per-channel encoders with cross-channel attention)
