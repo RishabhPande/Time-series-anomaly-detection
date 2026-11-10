@@ -1,0 +1,1 @@
+{"access_right":"open","creators":[{"name":"Pande, Rishabh","orcid":"0009-0004-1901-7109"}],"description":"Transformer-based time-series anomaly detection from scratch in pure Python, with a synthetic episode generator and a moving z-score baseline.","license":{"id":"MIT"},"title":"Time Series Anomaly Detection","upload_type":"software"}
