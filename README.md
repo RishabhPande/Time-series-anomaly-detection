@@ -79,6 +79,15 @@ print(roc_auc(scores, labels))
    any point inside a true episode counts the whole episode as
    detected), and ROC-AUC, all from scratch.
 
+## Metric alignment
+
+Paired metric inputs must have the same length, with one label or score per
+shared timestep. `precision_recall_f1`, `point_adjusted_f1`, `roc_auc`, and the
+`point_adjust` helper raise `ValueError` on unequal lengths rather than silently
+scoring a truncated prefix. Equal lengths do not prove matching timestamps:
+align timestamps and missing observations before calling these functions.
+Existing empty-input and single-class AUC conventions are unchanged.
+
 ## Why reconstruction beats fixed thresholds
 
 A moving z-score asks "is this value extreme relative to its
