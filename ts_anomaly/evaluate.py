@@ -8,6 +8,11 @@ whole episode counts as detected), and ROC-AUC via the rank method.
 from __future__ import annotations
 
 
+def _check_alignment(left: list, right: list) -> None:
+    if len(left) != len(right):
+        raise ValueError("metric inputs must have the same length (one value per timestep)")
+
+
 def scores_to_labels(scores: list[float], threshold: float) -> list[int]:
     return [1 if s >= threshold else 0 for s in scores]
 
@@ -15,6 +20,7 @@ def scores_to_labels(scores: list[float], threshold: float) -> list[int]:
 def precision_recall_f1(
     y_true: list[int], y_pred: list[int]
 ) -> dict[str, float]:
+    _check_alignment(y_true, y_pred)
     tp = sum(1 for t, p in zip(y_true, y_pred) if t == 1 and p == 1)
     fp = sum(1 for t, p in zip(y_true, y_pred) if t == 0 and p == 1)
     fn = sum(1 for t, p in zip(y_true, y_pred) if t == 1 and p == 0)
@@ -42,6 +48,7 @@ def _episodes(y_true: list[int]) -> list[tuple[int, int]]:
 
 def point_adjust(y_true: list[int], y_pred: list[int]) -> list[int]:
     """Expand flags: any hit inside a true episode flags the whole episode."""
+    _check_alignment(y_true, y_pred)
     adj = list(y_pred)
     for s, e in _episodes(y_true):
         if any(y_pred[s:e]):
@@ -56,6 +63,7 @@ def point_adjusted_f1(y_true: list[int], y_pred: list[int]) -> dict[str, float]:
 
 def roc_auc(scores: list[float], y_true: list[int]) -> float:
     """Area under the ROC curve via the Mann-Whitney rank statistic."""
+    _check_alignment(scores, y_true)
     pos = [s for s, t in zip(scores, y_true) if t == 1]
     neg = [s for s, t in zip(scores, y_true) if t == 0]
     if not pos or not neg:
